@@ -14,5 +14,10 @@
 	"plugins": ["react"],
 	"rules": {
 		"quotes": ["error", "double"]
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	}
 }
