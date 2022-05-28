@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const MyButton = styled.button`
-	border: 2px solid blue;
 	padding: 45px;
+	background-color: ${({ theme }) => theme.black};
+	color: ${({ theme }) => theme.grey100};
+	font-size: ${({ theme }) => theme.fontSize.s};
 `;
 
 const Button = () => {
