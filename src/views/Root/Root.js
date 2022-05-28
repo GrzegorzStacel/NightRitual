@@ -1,7 +1,7 @@
 import React from "react";
 
-function App() {
+function Root() {
 	return <h1>Hello World :)</h1>;
 }
 
-export default App;
+export default Root;
