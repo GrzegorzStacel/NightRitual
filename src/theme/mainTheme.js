@@ -1,8 +1,12 @@
 export const theme = {
-	grey100: "hsl(0, 0%, 96%)",
-	grey200: "hsl(0, 0%, 90%)",
-	grey300: "hsl(0, 0%, 70%)",
-	black: "hsl(0, 0%, 0%)",
+	surface: "#393E46",
+	onSurface: "#E1E1E1",
+	primary: "#03DAC6",
+	onPrimary: "#00100E",
+	secondary: "#C38FFF",
+	onSecondary: "#0C0911",
+	red: "#C03F3F",
+	green: "#44C961",
 	light: 300,
 	bold: 600,
 	fontSize: {
