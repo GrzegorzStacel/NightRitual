@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-size: 1.6rem;
         font-family: "Montserrat", sans-serif;
-        background: gray;
+        background: #222831;
         margin: 0;
         padding: 0;
     }
