@@ -1,10 +1,17 @@
 export const theme = {
 	surface: "#393E46",
-	onSurface: "#E1E1E1",
 	primary: "#03DAC6",
-	onPrimary: "#00100E",
 	secondary: "#C38FFF",
-	onSecondary: "#0C0911",
+	on: {
+		surface: "#E1E1E1",
+		primary: "#00100E",
+		secondary: "#0C0911",
+	},
+	hover: {
+		surface: "#4D525B",
+		primary: "#41D9AE",
+		secondary: "#DCA0FA",
+	},
 	red: "#C03F3F",
 	green: "#44C961",
 	light: 300,
