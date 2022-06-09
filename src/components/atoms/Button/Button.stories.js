@@ -6,4 +6,14 @@ export default {
 	component: Button,
 };
 
-export const Primary = () => <Button>Awensome button</Button>;
+const Template = (args) => <Button {...args}>Click me</Button>;
+
+export const Primary = Template.bind({});
+Primary.args = {
+	activeColor: "primary",
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+	activeColor: "secondary",
+};
