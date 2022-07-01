@@ -1,7 +1,6 @@
+import MainWindow from "components/atoms/MainWindow/MainWindow";
 import React from "react";
 
-const TimeGoals = () => {
-	return <div>TimeGoals</div>;
-};
+const TimeGoals = () => <MainWindow>TimeGoals</MainWindow>;
 
 export default TimeGoals;

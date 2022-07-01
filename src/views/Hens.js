@@ -1,7 +1,6 @@
 import React from "react";
+import MainWindow from "components/atoms/MainWindow/MainWindow";
 
-const Chicken = () => {
-	return <div>Chicken</div>;
-};
+const Hens = () => <MainWindow>Hens</MainWindow>;
 
-export default Chicken;
+export default Hens;
