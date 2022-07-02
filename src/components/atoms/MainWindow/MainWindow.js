@@ -25,7 +25,7 @@ const MainWindow = ({ children }) => {
 };
 
 MainWindow.propTypes = {
-	children: PropTypes.string,
+	children: PropTypes.node.isRequired,
 };
 
 export default MainWindow;
