@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
 	width: 100%;
 	display: flex;
 	justify-content: center;
