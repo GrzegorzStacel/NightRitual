@@ -41,29 +41,21 @@ const DisplayDescriptions = descriptions.map((item, index) => (
 const getInputs = (index) => {
 	const row = [];
 	let id;
+	let desc = "min";
 
 	for (index = 0; index < 4; index++) {
 		id = nanoid();
 
-		if (index === 3) {
-			row.push(
-				<InsideContainer key={id} id={id}>
-					<Input />
-					<Desc>km</Desc>
-					<Input />
-					<Desc>m</Desc>
-				</InsideContainer>
-			);
-		} else {
-			row.push(
-				<InsideContainer key={id} id={id}>
-					<Input />
-					<Desc>h</Desc>
-					<Input />
-					<Desc>min</Desc>
-				</InsideContainer>
-			);
-		}
+		if (index === 3) desc = "m";
+
+		row.push(
+			<InsideContainer key={id} id={id}>
+				<Input />
+				<Desc>h</Desc>
+				<Input />
+				<Desc>{desc}</Desc>
+			</InsideContainer>
+		);
 	}
 
 	return row;
