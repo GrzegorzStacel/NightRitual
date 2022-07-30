@@ -22,7 +22,7 @@ const InsideContainer = styled.div`
 	align-items: center;
 	background: ${({ theme }) => theme["surface"]};
 	display: grid;
-	grid-template-columns: 25% 15% 25% 35%;
+	grid-template-columns: 30% 10% 25% 35%;
 	align-content: center;
 	justify-items: stretch;
 	height: 35px;

@@ -10,7 +10,7 @@ const Input = styled.input.attrs((props) => ({
 	border: none;
 	color: ${({ activeColor, theme }) =>
 		activeColor ? theme.on[activeColor] : theme.on["surface"]};
-	width: 40px;
+	width: 35px;
 	height: 35px;
 	text-align: right;
 	padding: 0 5px;
