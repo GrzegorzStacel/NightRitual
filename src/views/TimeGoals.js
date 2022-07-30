@@ -5,6 +5,7 @@ import formatDate from "utils/formatTIme";
 import Desc from "components/atoms/Desc/Desc";
 import Input from "components/atoms/Input/Input";
 import { nanoid } from "nanoid";
+import dummyValue from "assets/dummyValueForInputs";
 
 const widthColumn = "135px";
 
@@ -38,33 +39,40 @@ const DisplayDescriptions = descriptions.map((item, index) => (
 	</Desc>
 ));
 
-const getInputs = (index) => {
+const getInputs = (validDummyValue) => {
 	const row = [];
 	let id;
 	let desc = "min";
 
-	for (index = 0; index < 4; index++) {
+	Object.entries(validDummyValue).map((item, index) => {
 		id = nanoid();
 
 		if (index === 3) desc = "m";
 
 		row.push(
 			<InsideContainer key={id} id={id}>
-				<Input />
+				<Input defaultValue={item[1][0]} />
 				<Desc>h</Desc>
-				<Input />
+				<Input defaultValue={item[1][1]} />
 				<Desc>{desc}</Desc>
 			</InsideContainer>
 		);
-	}
+	});
 
 	return row;
 };
 
 const DisplayInputs = () => {
 	const inputs = [];
+	let dateAfterFormat = "";
+	let validDummyValue;
 
 	for (let index = 0; index < 7; index++) {
+		dateAfterFormat = formatDate(index);
+
+		if (Object.prototype.hasOwnProperty.call(dummyValue, dateAfterFormat))
+			validDummyValue = dummyValue[dateAfterFormat];
+
 		inputs.push(
 			<Container key={`id-${index}`}>
 				<Input
@@ -72,9 +80,9 @@ const DisplayInputs = () => {
 					disabled
 					big
 					activeColor='surface'
-					defaultValue={formatDate(index)}
+					defaultValue={dateAfterFormat}
 				/>
-				{getInputs(4)}
+				{getInputs(validDummyValue)}
 			</Container>
 		);
 	}
