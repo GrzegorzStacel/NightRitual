@@ -2,15 +2,14 @@ function leadingZero(i) {
 	return i < 10 ? "0" + i : i;
 }
 
-function addDays(date, days) {
-	let result = new Date(date);
-	result.setDate(result.getDate() + days);
+function addDays(days) {
+	let result = new Date();
+	console.log(days);
 	return result;
 }
 
 function formatDate(i) {
-	let date = new Date();
-	const newDay = addDays(date, i);
+	const newDay = addDays(i);
 
 	return (
 		leadingZero(newDay.getDate()) +
