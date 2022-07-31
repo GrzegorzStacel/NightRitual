@@ -51,9 +51,9 @@ const getInputs = (validDummyValue) => {
 
 		row.push(
 			<InsideContainer key={id} id={id}>
-				<Input defaultValue={item[1][0]} />
+				<Input defaultValue={item[1][0]} maxLength={3} />
 				<Desc>h</Desc>
-				<Input defaultValue={item[1][1]} />
+				<Input defaultValue={item[1][1]} maxLength={3} />
 				<Desc>{desc}</Desc>
 			</InsideContainer>
 		);
