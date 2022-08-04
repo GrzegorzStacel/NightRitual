@@ -1,7 +1,7 @@
 import MainWindow from "components/atoms/MainWindow/MainWindow";
 import React from "react";
 import styled from "styled-components";
-import formatDate from "utils/formatTIme";
+import { formatDate, getMonday } from "utils/formatTime";
 import Desc from "components/atoms/Desc/Desc";
 import Input from "components/atoms/Input/Input";
 import { nanoid } from "nanoid";
@@ -64,11 +64,14 @@ const getInputs = (validDummyValue) => {
 
 const DisplayInputs = () => {
 	const inputs = [];
-	let dateAfterFormat = "";
-	let validDummyValue;
+	let dateAfterFormat = "",
+		validDummyValue;
+
+	let latestMonday = new Date();
+	latestMonday = getMonday(latestMonday);
 
 	for (let index = 0; index < 7; index++) {
-		dateAfterFormat = formatDate(index);
+		dateAfterFormat = formatDate(latestMonday, index);
 
 		if (Object.prototype.hasOwnProperty.call(dummyValue, dateAfterFormat))
 			validDummyValue = dummyValue[dateAfterFormat];
