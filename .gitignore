@@ -24,3 +24,5 @@ yarn-error.log*
 
 ./husky/pre-commit
 .eslintignore
+.vscode/launch.json
+src/assets/quokka.js
