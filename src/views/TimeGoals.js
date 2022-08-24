@@ -39,67 +39,68 @@ const DisplayDescriptions = descriptions.map((item, index) => (
 	</Desc>
 ));
 
-const getInputs = (validDummyValue) => {
-	const row = [];
-	let id;
-	let desc = "min";
+export class TimeGoals extends React.Component {
+	getInputs = (validDummyValue) => {
+		const row = [];
+		let id;
+		let desc = "min";
 
-	Object.entries(validDummyValue).map((item, index) => {
-		id = nanoid();
+		Object.entries(validDummyValue).map((item, index) => {
+			id = nanoid();
+			if (index === 3) desc = "m";
 
-		if (index === 3) desc = "m";
+			row.push(
+				<InsideContainer key={id} id={id}>
+					<Input type='tel' defaultValue={item[1][0]} maxLength={3} />
+					<Desc>h</Desc>
+					<Input type='tel' defaultValue={item[1][1]} maxLength={3} />
+					<Desc>{desc}</Desc>
+				</InsideContainer>
+			);
+		});
 
-		row.push(
-			<InsideContainer key={id} id={id}>
-				<Input defaultValue={item[1][0]} maxLength={3} />
-				<Desc>h</Desc>
-				<Input defaultValue={item[1][1]} maxLength={3} />
-				<Desc>{desc}</Desc>
-			</InsideContainer>
-		);
-	});
+		return row;
+	};
 
-	return row;
-};
+	DisplayInputs = () => {
+		const inputs = [];
+		let dateAfterFormat = "",
+			validDummyValue;
 
-const DisplayInputs = () => {
-	const inputs = [];
-	let dateAfterFormat = "",
-		validDummyValue;
+		let latestMonday = new Date();
+		latestMonday = getMonday(latestMonday);
 
-	let latestMonday = new Date();
-	latestMonday = getMonday(latestMonday);
+		for (let index = 0; index < 7; index++) {
+			dateAfterFormat = formatDate(latestMonday, index);
 
-	for (let index = 0; index < 7; index++) {
-		dateAfterFormat = formatDate(latestMonday, index);
+			if (Object.prototype.hasOwnProperty.call(dummyValue, dateAfterFormat))
+				validDummyValue = dummyValue[dateAfterFormat];
 
-		if (Object.prototype.hasOwnProperty.call(dummyValue, dateAfterFormat))
-			validDummyValue = dummyValue[dateAfterFormat];
+			inputs.push(
+				<Container key={`id-${index}`}>
+					<Input
+						readOnly
+						disabled
+						big
+						activeColor='surface'
+						defaultValue={dateAfterFormat}
+					/>
+					{this.getInputs(validDummyValue)}
+				</Container>
+			);
+		}
 
-		inputs.push(
-			<Container key={`id-${index}`}>
-				<Input
-					readOnly
-					disabled
-					big
-					activeColor='surface'
-					defaultValue={dateAfterFormat}
-				/>
-				{getInputs(validDummyValue)}
-			</Container>
+		return inputs;
+	};
+
+	render() {
+		return (
+			<MainWindow>
+				<Container>{DisplayDescriptions}</Container>
+				{this.DisplayInputs()}
+			</MainWindow>
 		);
 	}
-
-	return inputs;
-};
-
-const TimeGoals = () => {
-	return (
-		<MainWindow>
-			<Container>{DisplayDescriptions}</Container>
-			{DisplayInputs()}
-		</MainWindow>
-	);
-};
+}
 
 export default TimeGoals;
